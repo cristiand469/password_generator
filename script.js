@@ -1,54 +1,52 @@
-//Elements
-const resultEl= document.getElementById("result");
-const lengthEl= document.getElementById("length");
-const uppercaseEl= document.getElementById("uppercase");
-const lowercaseEl= document.getElementById("lowercase");
-const numberEl= document.getElementById("number");
-const symbolsEl= document.getElementById("symbols");
-const generateEl= document.getElementById("generate");
+const amount = document.getElementById('amount')
+const settings = document.getElementById('settings')
+const uppercaseElement = document.getElementById('uppercase')
+const lowercaseElement = document.getElementById('lowercase')
+const symbolsElement = document.getElementById('symbols')
+const passwordDisplay = document.getElementById('password_display')
 
-//Events
-generateEl.addEventListener('click',()=>{
-    const length= +lengthEl.nodeValue;
-    const hasLower=lowercaseEl.checked;
-    const hasUpper=uppercaseEl.checked;
-    const hasNumber=numberEl.checked;
-    const hasSymbols=symbolsEl.checked;
+const uppercase_char_codes = fromLowToHigh(65 , 90)
+const lowercase_char_codes = fromLowToHigh(97 , 122)
+const symbols_char_codes = fromLowToHigh(33 , 47).concat
+(fromLowToHigh(58 , 64)).concat(fromLowToHigh(91 , 96)
+).concat(fromLowToHigh(123 , 126)
+)
+
+
+
+amount.addEventListener('input' , syncLengthAmount )
+settings.addEventListener('submit' , e => {
+    e.preventDefault()
+    const uppercase = uppercaseElement.checked
+    const lowercase = lowercaseElement.checked
+    const symbols = symbolsElement.checked
+    const password = generatePassword(length, uppercase, lowercase, symbols)
+    passwordDisplay.innerText = password
+})
+
+function generatePassword( length, uppercase, lowercase, symbols){
+    let charCodes = lowercase_char_codes
+    if (uppercase) charCodes = charCodes.concat(uppercase_char_codes)
+    if (lowercase) charCodes = charCodes.concat(lowercase_char_codes)
+    if (symbols) charCodes = charCodes.concat(symbols_char_codes)
     
-    resultEl.innerText=generatePassword(hasLower, hasUpper,hasNumber,hasSymbols, length);
+    const passwordCharacters = []
+    for (let i = 0; i < amount; i++){
+    const characterCode = charCodes[Math.floor(Math.random()*
+       charCodes.length)]
+       passwordCharacters.push(String.fromCharCode(characterCode))
+    }
+    return passwordCharacters.join('')
 }
 
-//password function
-function generatePassword(lower,upper,number,symbols,length){
-   let  generatePassword=""
-
-   const typesCount = lower + upper + number + symbols;
-
-   const typesArr = [{lower}, {upper}, {number}, {symbols}].filter(item => Object.values(item)[0]);
-
-   if(typesCount===0){
-       return"";
-   }
+function fromLowToHigh (low, high){
+    for ( let i = low; i <= high; i++){
+        Array.push(i)
+    }
+    return Array
 }
 
-const randomFun ={
-    lower= getRandomLower,
-    upper= getRandomUppercase,
-    number= getRandomNumber,
-    Symbol= getRandomSymbol
-};
-
-// generate for settings- http://www.net-comber.com/charset.html
-function getRandomLower(){
-    return String.fromCharCode(Math.floor(Math.random()* 26)+97);
-}
-function getRandomUppercase(){
-    return String.fromCharCode(Math.floor(Math.random()* 26)+65);
-}
-function getRandomNumber(){
-    return String.fromCharCode(Math.floor(Math.random()* 10)+48);
-}
-function getRandomSymbol(){
-    const symbols="!@#$%&*(){}[]=,./<>?`~-_|^";
-    return symbols[Math.floor(Math.random()* symbols.length)]
+function syncLengthAmount(e){
+    const value = e.target.value
+    length.value = value
 }
