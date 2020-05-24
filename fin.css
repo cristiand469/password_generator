@@ -31,7 +31,7 @@ body{
 label{
     font-weight: bold;
 }
-.password-display{
+.result{
     background-color: white;
     color: black;
     padding: 1rem;
