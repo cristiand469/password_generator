@@ -3,25 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script> src="script.js"</script>
-    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-    <link  rel="stylesheet" href="style.css">
-    <title>Passord Generator</title>
+    
+    <link rel="stylesheet" href="stylesheet.css">
+    <title>Password Generator</title>
 </head>
 <body>
-    <div class="login-box">
-        <h2> Login</h2>
-        <div class="textbox">
-            <i class="fa fa-user" aria-hidden="true"></i>
-          <input type="text" placeholder="Username" name="" value="">
-        </div>
+    <div class="container">
+        <h1 class="title">Password Generator</h1>
+        <h3 class="password-display" id="passwordDisplay" >Password</h3>
+        <form id="passwordGeneratorForm" class="form">
+            <label for="characterAmountNumber">Number of Characters</label>
+           <div class="character-amount-container">
+            <input type="range" min="1" max="50" value="10" id="characterAmountRange">
+            <input class="number-input" type="number" min="1" max="50" value="10" id="characterAmountNumber">
+           </div>
+ 
+            <label for="includeUppercase">Include Uppercase</label>
+            <input type="checkbox" id="includeUppercase">
 
-        <div class="textbox">
-            <i class="fa fa-lock" aria-hidden="true"></i>
-            <input type="password" placeholder="Password" name="" value="">
-          </div>
-     <input class="btn" type="button" name="" value="Sign in">
+            <label for="includeNumbers">Include Numbers</label>
+            <input type="checkbox" id="includeNumbers">
+            
+            <label for="includeSymbols">Include Symbols</label>
+            <input type="checkbox" id="includeSymbols">
+
+            <button type="submit" class="btn">Generate Password</button>
+        </form>
+
     </div>
-    
+    <script src="scripts.js"></script>
 </body>
 </html>

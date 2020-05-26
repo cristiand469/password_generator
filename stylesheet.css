@@ -3,13 +3,13 @@ body{
     margin: 0;
     color: white;
     min-height: 100vh;
-    display:flex ;
+    display: flex;
     justify-content: center;
     align-items: center;
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
-.container{
-    background-color: blue;
+.container {
+    background-color: #006699;
     padding: 3rem;
     border-radius: 1rem;
     border: 2px solid black;
@@ -23,8 +23,8 @@ body{
     grid-template-columns: auto auto;
     row-gap: 1rem;
     column-gap: 3rem;
-   justify-content: center;
-   align-items: center;
+    justify-content: center;
+    align-items: center;
 }
 .title{
     margin: 0;
@@ -44,25 +44,25 @@ label{
     background-color: white;
     color: black;
     padding: 1rem;
-    border: 1px solid #333;
-    height: 1rem;
+    border: 1px solid#333;
+    height: 2rem;
     width: 350px;
     display: flex;
     justify-content: center;
     align-items: center;
     word-break: break-all;
-    border-radius: .5rem;
+    border-radius:.5rem;
 }
- .btn{
+.btn{
     grid-column: span 2;
-    color: #fff;
     background-color: transparent;
     border: 2px solid white;
-    border-radius: 1rem;
+    color: white;
     padding: .5rem 1rem;
-    cursor: pointer;
     font-weight: bold;
- }
- .btn:hover{
-     background-color: #FFFFFF33;
- }
+    cursor: pointer;
+    border-radius: 1rem;
+}
+.btn:hover{
+    background-color:#FFFFFF33 ;
+}
