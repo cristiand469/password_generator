@@ -1,37 +1,42 @@
 body{
-    background-color: #333;
-    margin: 0;
-    color: white;
+    background: url(./pics/light.jpg) no-repeat;
+    background-size: cover;
+    padding: 0;
+    color:#F7EF8A;
     min-height: 100vh;
-    display: flex;
-    justify-content: center;
+    margin: auto;
+    margin-top: 15%;
+    height:50% ;
+    width: 50%;
     align-items: center;
-    font-family: Georgia, 'Times New Roman', Times, serif;
 }
 .container {
-    background-color: #006699;
+    background-color: transparent;
     padding: 3rem;
     border-radius: 1rem;
-    border: 2px solid black;
+    border: 2px solid #F7EF8A;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
 }
 .form{
+    padding: auto;
     display: grid;
     grid-template-columns: auto auto;
     row-gap: 1rem;
-    column-gap: 3rem;
+    column-gap: .5rem;
     justify-content: center;
     align-items: center;
 }
 .title{
     margin: 0;
     text-align: center;
+    font-family: 'Playfair Display', serif;
 }
 label{
     font-weight: bold;
+    font-family: 'Open Sans', sans-serif;
 }
 .character-amount-container{
     display: flex;
@@ -46,7 +51,7 @@ label{
     padding: 1rem;
     border: 1px solid#333;
     height: 2rem;
-    width: 350px;
+    width: 75%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -56,7 +61,7 @@ label{
 .btn{
     grid-column: span 2;
     background-color: transparent;
-    border: 2px solid white;
+    border: 2px solid #F7EF8A;
     color: white;
     padding: .5rem 1rem;
     font-weight: bold;
@@ -64,5 +69,6 @@ label{
     border-radius: 1rem;
 }
 .btn:hover{
-    background-color:#FFFFFF33 ;
+    background-color: #F7EF8A ;
+    color: black;
 }
